@@ -1,0 +1,37 @@
+.task-card {
+  background-color: #ffffff;
+  width: 250px;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.user-image {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.task-footer {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.priority-icon {
+  color: #ff0000;
+}
+
+.tag {
+  background-color: #e0e0e0;
+  padding: 2px 5px;
+  border-radius: 4px;
+}
