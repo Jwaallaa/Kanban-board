@@ -8,6 +8,7 @@ const GroupToggle = ({ setGroupBy }) => {
       <select onChange={(e) => setGroupBy(e.target.value)}>
         <option value="user">User</option>
         <option value="status">Status</option>
+        <option value="priority">Priority</option>
       </select>
     </div>
   );
