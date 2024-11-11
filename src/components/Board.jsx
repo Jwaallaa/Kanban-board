@@ -2,11 +2,19 @@ import React from 'react';
 import TaskCard from './TaskCard';
 import './Board.css';
 
+
+const priorityLabels = {
+  4: "Urgent",
+  3: "High",
+  2: "Medium",
+  1: "Low",
+  0: "No priority"
+};
 const Board = ({ tasks, groupBy , users }) => {
 
 const groupedTasks = tasks.reduce((groups, task) => {
   const key = groupBy === 'user' ? users[task.userId] :
-              groupBy === 'status' ? task.status :
+              groupBy === 'status' ? priorityLabels[task.status] :
               task.priority;
   groups[key].push(task);
   return groups;
