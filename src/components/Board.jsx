@@ -2,16 +2,15 @@ import React from 'react';
 import TaskCard from './TaskCard';
 import './Board.css';
 
-const Board = ({ tasks, groupBy }) => {
+const Board = ({ tasks, groupBy , users }) => {
 
 const groupedTasks = tasks.reduce((groups, task) => {
-  const key = groupBy === 'user' ? task.userId :
+  const key = groupBy === 'user' ? users[task.userId] :
               groupBy === 'status' ? task.status :
               task.priority;
-  if (!groups[key]) groups[key] = [];
   groups[key].push(task);
   return groups;
-}, {});
+});
 
   return (
     <div className="board">
