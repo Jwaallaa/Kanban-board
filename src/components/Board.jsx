@@ -12,13 +12,14 @@ const priorityLabels = {
 };
 const Board = ({ tasks, groupBy , users }) => {
 
-const groupedTasks = tasks.reduce((groups, task) => {
-  const key = groupBy === 'user' ? users[task.userId] :
-              groupBy === 'status' ? priorityLabels[task.status] :
-              task.priority;
-  groups[key].push(task);
-  return groups;
-});
+  const groupedTasks = tasks.reduce((groups, task) => {
+    const key = groupBy === 'user' ? users[task.userId].name :
+                groupBy === 'status' ? task.status :
+                priorityLabels[task.priority];
+    if (!groups[key]) groups[key] = [];
+    groups[key].push(task);
+    return groups;
+  }, {});
 
   return (
     <div className="board">
