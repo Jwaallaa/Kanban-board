@@ -6,7 +6,7 @@ const TaskCard = ({ task }) => {
     <div className="task-card">
       <div className="task-header">
         <span>{task.ticketId}</span>
-        <img src={task.userImage} alt="User" className="user-image" />
+        <img src={/*task.userImage*/ "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg"} alt="User" className="user-image" />
       </div>
       <h4>{task.title}</h4>
       <div className="task-footer">
