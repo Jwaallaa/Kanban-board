@@ -4,10 +4,20 @@
 }
 
 .column {
-  min-width: 300px;
+  margin: 10px;
+}
+
+.column h3 {
+  display: flex;
+  justify-content: space-between;
 }
 .user {
   display: inline-block;
   align-items: "center";
   margin-left: "8px";
+}
+
+.user-status {
+  font-size: 12px;
+  font-weight: bold;
 }
