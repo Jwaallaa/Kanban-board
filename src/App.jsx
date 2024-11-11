@@ -21,7 +21,7 @@ const App = () => {
     }
 
     const username = data.users.reduce((acc, user) => {
-      acc[user.id] = user.name;
+      acc[user.id] = { name: user.name, available: user.available };
       return acc;
     }, {});
     setUsers(users);

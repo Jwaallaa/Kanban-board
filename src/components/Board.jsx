@@ -16,7 +16,19 @@ const groupedTasks = tasks.reduce((groups, task) => {
     <div className="board">
       {Object.entries(groupedTasks).map(([key, tasks]) => (
         <div key={key} className="column">
-          <h3>{key}</h3>
+          <h3>{key}
+          {groupBy === "user" && (
+              <span className='user' >
+                <span
+                  style={{
+                    backgroundColor: userMap[tasks.find(task => userMap[task.userId].name === key).userId].available ? "green" : "grey"
+                    
+                  }}
+                ></span>
+                {userMap[tasks.find(task => userMap[task.userId].name === key).userId].available ? "Available" : "Not Available"}
+              </span>
+            )}
+          </h3>
           {tasks.map((task) => (
             <TaskCard key={task.id} task={task} />
           ))}
