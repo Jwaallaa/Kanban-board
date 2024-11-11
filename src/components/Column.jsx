@@ -5,7 +5,7 @@ import TaskCard from './TaskCard';
 const Column = ({ groupKey, tasks }) => {
   return (
     <div className="column">
-      <h3>{groupKey}</h3> {/* Display the grouping key */}
+      <h2>{groupKey}</h2> {/* Display the grouping key */}
       {tasks.map(task => (
         <TaskCard key={task.id} task={task} />
       ))}
