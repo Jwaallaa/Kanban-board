@@ -6,6 +6,7 @@ import './App.css';
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
+  const [users , setUsers] = useState({});
   const [groupBy, setGroupBy] = useState('user');
 
   const fetchTasks = async () => {
@@ -14,9 +15,17 @@ const App = () => {
       const data = responce.data;
       console.log(data)
       setTasks(data.tickets);
+      setUsers(data.users);
     } catch (error) {
       console.error("Error fetching tasks:", error);
     }
+
+    const username = data.users.reduce((acc, user) => {
+      acc[user.id] = user.name;
+      return acc;
+    }, {});
+    setUsers(users);
+
   };
 
   useEffect(() => {
@@ -26,7 +35,7 @@ const App = () => {
   return (
     <div className="app">
       <GroupToggle setGroupBy={setGroupBy} />
-      <Board tasks={tasks} groupBy={groupBy} />
+      <Board tasks={tasks} groupBy={groupBy} users={users} />
     </div>
   );
 };
