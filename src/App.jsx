@@ -20,7 +20,7 @@ const App = () => {
         acc[user.id] = { name: user.name, available: user.available };
         return acc;
       }, {});
-      setUsers(username); // Correctly setting users state
+      setUsers(username); 
     } catch (error) {
       console.error("Error fetching tasks:", error);
     }

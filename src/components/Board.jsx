@@ -25,19 +25,16 @@ const Board = ({ tasks, groupBy , users }) => {
     <div className="board">
       {Object.entries(groupedTasks).map(([key, tasks]) => (
         <div key={key} className="column">
-          <h3>{key}
+          <h3>{key}</h3>
           {groupBy === "user" && (
-              <span className='user' >
-                <span
-                  style={{
-                    backgroundColor: userMap[tasks.find(task => userMap[task.userId].name === key).userId].available ? "green" : "grey"
-                    
-                  }}
-                ></span>
-                {userMap[tasks.find(task => userMap[task.userId].name === key).userId].available ? "Available" : "Not Available"}
-              </span>
+                <span className='user' style={{
+                  color: users[tasks.find(task => users[task.userId].name === key).userId].available ? "green" : "grey"
+                }}>
+                  {users[tasks.find(task => users[task.userId].name === key).userId].available ? "Available" : "Not Available"}
+                  
+                </span>
             )}
-          </h3>
+          
           {tasks.map((task) => (
             <TaskCard key={task.id} task={task} />
           ))}

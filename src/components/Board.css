@@ -1,17 +1,13 @@
 .board {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .user{
-    display: "inline-flex";
-    align-items: "center";
-    margin-left: "8px";
-    >span{
-      width: "8px";
-      height: "8px";
-      border-radius: "50%";
-      margin-right: "4px";
-    }
-  }
-  
+  display: flex;
+  gap: 20px;
+}
+
+.column {
+  min-width: 300px;
+}
+.user {
+  display: inline-block;
+  align-items: "center";
+  margin-left: "8px";
+}
