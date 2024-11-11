@@ -10,9 +10,14 @@ const TaskCard = ({ task }) => {
       </div>
       <h4>{task.title}</h4>
       <div className="task-footer">
-        <span className="priority-icon">!</span>
-        <span className="tag">{task.tag[0]}</span>
-      </div>
+  <span className={`priority-icon priority-${task.priority}`}>
+    {task.priority === 4 ? "Urgent" :
+     task.priority === 3 ? "High" :
+     task.priority === 2 ? "Medium" :
+     task.priority === 1 ? "Low" : "No Priority"}
+  </span>
+  <span className="tag">{task.tag[0]}</span>
+</div>
     </div>
   );
 };
