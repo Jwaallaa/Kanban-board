@@ -6,26 +6,24 @@ import './App.css';
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
-  const [users , setUsers] = useState({});
+  const [users, setUsers] = useState({});
   const [groupBy, setGroupBy] = useState('user');
 
   const fetchTasks = async () => {
     try {
-      const responce = await axios.get('https://api.quicksell.co/v1/internal/frontend-assignment');
-      const data = responce.data;
-      console.log(data)
+      const response = await axios.get('https://api.quicksell.co/v1/internal/frontend-assignment');
+      const data = response.data;
+      console.log(data);
       setTasks(data.tickets);
-      setUsers(data.users);
+
+      const username = data.users.reduce((acc, user) => {
+        acc[user.id] = { name: user.name, available: user.available };
+        return acc;
+      }, {});
+      setUsers(username); // Correctly setting users state
     } catch (error) {
       console.error("Error fetching tasks:", error);
     }
-
-    const username = data.users.reduce((acc, user) => {
-      acc[user.id] = { name: user.name, available: user.available };
-      return acc;
-    }, {});
-    setUsers(users);
-
   };
 
   useEffect(() => {
