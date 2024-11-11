@@ -8,17 +8,18 @@ const App = () => {
   const [tasks, setTasks] = useState([]);
   const [groupBy, setGroupBy] = useState('user');
 
+  const fetchTasks = async () => {
+    try {
+      const responce = await axios.get('https://api.quicksell.co/v1/internal/frontend-assignment');
+      const data = responce.data;
+      console.log(data)
+      setTasks(data.tickets);
+    } catch (error) {
+      console.error("Error fetching tasks:", error);
+    }
+  };
+
   useEffect(() => {
-    const fetchTasks = async () => {
-      try {
-        const responce = await axios.get('https://api.quicksell.co/v1/internal/frontend-assignment');
-        const data = responce.data;
-        console.log(data)
-        setTasks(data.tickets);
-      } catch (error) {
-        console.error("Error fetching tasks:", error);
-      }
-    };
     fetchTasks();
   }, []);
 
